@@ -7,7 +7,7 @@ const LeftSideBar = () => {
     <section className="left_sidebar">
         <nav className='flex flex-col gap-6'>
             <Link href="/">
-                <Image src="/icons/CC_logo.svg" width={23} height={27} alt="CC Logo" />
+                <Image src="/icons/logo2.png" width={23} height={27} alt="cc logo" />
             </Link>
         </nav>
     </section>
