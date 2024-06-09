@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Complete Cast",
   description: "Creates podcasts utilizing artificial intelligence",
   icons:{
-    icon: '/public/icons/logo.svg'
+    icon: '/public/icons/logo2.png'
   }
 };
 
