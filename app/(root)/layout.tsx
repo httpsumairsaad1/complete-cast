@@ -1,4 +1,7 @@
 import LeftSideBar from "@/components/LeftSideBar";
+import RightSideBar from '@/components/LeftSideBar';
+import Image from 'next/image'
+import MobileNav from "@/components/MobileNav";
 
 export default function RootLayout({
   children,
@@ -6,13 +9,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
-        <main>
+    <div className="relative flex flex-col">
+
+        {/* main page color > orange  */}
+        <main className='relative flex bg-orange-2'>
             {/* 9 June 2024, Sunday. UMAIR SAAD */}
             <LeftSideBar/>
-            {children}
-            <p className="text-white-1">RIGHT SIDEBAR</p>
+            <section className="border-2 border-white-500 flex min-h-screen flex-1 flex-col px-4 sm:px-14">
+              <div className="mx-auto flex w-full max-w-5xwl flex-col max-sm:px-4">
+                <div className="flex h-16 items-center justify-between md:hidden"> 
+                   <Image
+                    src="/icons/logo2.png"
+                    alt="menu-icon"
+                    width={30}
+                    height={20}  
+                  />
+                  <MobileNav/>
+                </div>
+                <div className="flex flex-col md:pb-14">
+                  Toaster (Notification popup)
+                  {children}
+
+                </div>
+              </div>
+            </section>
+            <RightSideBar/>
         </main>
     </div>
   );
 }
+ 
