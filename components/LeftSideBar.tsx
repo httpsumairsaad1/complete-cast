@@ -6,13 +6,20 @@
 // *     *                                                            *     *
 // *     **************************************************************     *
 
+
+// HOOKS
+'use client';
+
+import { cn } from '@/lib/utils'
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { sidebarLinks } from './constants'
 import { usePathname, useRouter } from 'next/navigation'
+import { Component } from 'lucide-react';
 
 const LeftSideBar = () => {
+    // Client Component
     const pathname = usePathname();
     const router = useRouter();
 
@@ -25,9 +32,16 @@ const LeftSideBar = () => {
             </Link>
         </nav>
 
-        {/* OBJECT */}
-        {sidebarLinks.map(({route, label, imgURL}) => {
-            return <Link href={route} key={label} className='flex gap-3 items-center py-4 max-ld:px-4 justify-center lg:justify-start'>
+            {/* OBJECT */}
+        {
+            sidebarLinks.map(({route, label, imgURL}) => {
+            {/* Active Bar in LEFT SIDE BAR Menu */}
+            const isActive = pathname === route || pathname.startsWith(`${route}/`);
+
+            return <Link href={route} key={label} className={cn('flex gap-3 items-center py-4 max-ld:px-4 justify-center lg:justify-start', {
+                'bg-nav-focus border-r-4 border-orange-1' : isActive
+            })
+        }>
 
             {/* Size of the Icons in the LeftSideBar */}
             <Image src={imgURL} alt={label} width={24} height={24}/>
