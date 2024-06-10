@@ -16,7 +16,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { sidebarLinks } from './constants'
 import { usePathname, useRouter } from 'next/navigation'
-import { Component } from 'lucide-react';
 
 const LeftSideBar = () => {
     // Client Component
@@ -30,7 +29,6 @@ const LeftSideBar = () => {
                 <Image src="/icons/logo2.png" width={23} height={27} alt="cc-logo" />
                 <h1 className="text-24 font-extrabold text-white max-lg:hidden">Complete Cast</h1>
             </Link>
-        </nav>
 
             {/* OBJECT */}
         {
@@ -50,6 +48,7 @@ const LeftSideBar = () => {
              <p>{label}</p> 
             </Link>
         })} 
+        </nav>
     </section>
   )
 }
