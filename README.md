@@ -6,5 +6,6 @@
 ## Date:
 ###### Start on 9 June 2024
 ###### 10 June 2024, Structure and Left SideBar
-###### 11 June 2024, HomePage and Right SideBar
+###### 11 June 2024, HomePage 
+###### 12 Break
 
