@@ -26,8 +26,8 @@ const LeftSideBar = () => {
     <section className="left_sidebar">
         <nav className='flex flex-col gap-6'>
             <Link href="/" className='flex cursor-pointer items-center gap-1 pb-10 max-lg:justify-center'>
-                <Image src="/icons/logo2.png" width={23} height={27} alt="cc-logo" />
-                <h1 className="text-24 font-extrabold text-white max-lg:hidden">Complete Cast</h1>
+                <Image src="/icons/completeCastExtra2.png" width={200} height={27} alt="cc-logo" />
+                {/* <h1 className="text-24 font-extrabold text-white max-lg:hidden">Complete Cast</h1> */}
             </Link>
 
             {/* OBJECT */}

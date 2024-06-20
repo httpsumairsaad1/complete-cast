@@ -1,21 +1,17 @@
-// *     **************************************************************     *
-// *     *                                                            *     *
-// *     *                      DEVELOPER: UMAIR SAAD                 *     *
-// *     *                      COPYRIGHT 2024                        *     *
-// *     *                      DATE: 9 JUNE 2024                     *     *
-// *     *                                                            *     *
-// *     **************************************************************     *
+import Image from "next/image";
 
 export default function RootLayout({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
-    return (
-          <main>
-              {/* Working on the main page (children), 9 June 2024, Sunday. UMAIR SAAD */}
-              {children} 
-          </main>
-    );
-  }
-  
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <main className="relative h-screen w-full">
+      <div className="absolute size-full">
+        <Image src="/images/bg-img.jpg" alt="background" fill className="size-full" />
+      </div>
+
+      {children}
+    </main>
+  );
+}
