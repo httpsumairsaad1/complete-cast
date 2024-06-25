@@ -46,6 +46,7 @@ const config = {
           1: "#DC5F00",
           2: "#FF8F00",
           3: "#FC4F00",
+          5: "#FFAF45",
           4: "#F97535", // default
         },
         gray: {

@@ -5,7 +5,6 @@ import {
   query,
   QueryCtx,
 } from "./_generated/server";
-
 import { v } from "convex/values";
 import { Doc, Id } from "./_generated/dataModel";
 import { UserJSON } from "@clerk/backend";
