@@ -15,6 +15,7 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as https from "../https.js";
+import type * as openai from "../openai.js";
 import type * as tasks from "../tasks.js";
 import type * as users from "../users.js";
 
@@ -28,6 +29,7 @@ import type * as users from "../users.js";
  */
 declare const fullApi: ApiFromModules<{
   https: typeof https;
+  openai: typeof openai;
   tasks: typeof tasks;
   users: typeof users;
 }>;
