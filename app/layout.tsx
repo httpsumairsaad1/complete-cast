@@ -9,7 +9,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ConvexClerkProvider from "./providers/ConvexClerkProviders";
+import ConvexClerkProvider from "./providers/ConvexClerkProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 

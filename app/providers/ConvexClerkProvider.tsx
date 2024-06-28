@@ -11,7 +11,7 @@ const ConvexClerkProvider = ({ children }: { children: ReactNode }) => (
   <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY as string} appearance={{
     layout: { 
       socialButtonsVariant: 'iconButton',
-      logoImageUrl: '/icons/completeCastExtra2.png'
+      logoImageUrl: '/icons/auth-logo.svg'
     },
     variables: {
       colorBackground: '#15171c',
