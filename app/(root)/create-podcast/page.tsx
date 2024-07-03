@@ -30,6 +30,7 @@ import GeneratePodcast from "@/components/GeneratePodcast"
 import GenerateThumbnail from "@/components/GenerateThumbnail"
 import { Loader } from "lucide-react"
 import { Id } from "@/convex/_generated/dataModel"
+import { useToast } from "@/components/ui/use-toast"
 import { useMutation } from "convex/react"
 import { api } from "@/convex/_generated/api"
 import { useRouter } from "next/navigation"
@@ -51,11 +52,14 @@ const CreatePodcast = () => {
   const [audioStorageId, setAudioStorageId] = useState<Id<"_storage"> | null>(null)
   const [audioDuration, setAudioDuration] = useState(0);
   
-  const [voiceType, setVoiceType] = useState<string | null>(null); 
+  const [voiceType, setVoiceType] = useState<string | null>(null);
   const [voicePrompt, setVoicePrompt] = useState('');
   
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const createPodcast = useMutation(api.podcasts.createPodcast)
+
+  const { toast } = useToast()
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -64,16 +68,45 @@ const CreatePodcast = () => {
       podcastDescription: "",
     },
   })
+ 
+  async function onSubmit(data: z.infer<typeof formSchema>) {
+    try {
+      setIsSubmitting(true);
+      if(!audioUrl || !imageUrl || !voiceType) {
+        toast({
+          title: 'Please generate audio and image',
+        })
+        setIsSubmitting(false);
+        throw new Error('Please generate audio and image')
+      }
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+      const podcast = await createPodcast({
+        podcastTitle: data.podcastTitle,
+        podcastDescription: data.podcastDescription,
+        audioUrl,
+        imageUrl,
+        voiceType,
+        imagePrompt,
+        voicePrompt,
+        views: 0,
+        audioDuration,
+        audioStorageId: audioStorageId!,
+        imageStorageId: imageStorageId!,
+      })
+      toast({ title: 'Podcast created' })
+      setIsSubmitting(false);
+      router.push('/')
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: 'Error',
+        variant: 'destructive',
+      })
+      setIsSubmitting(false);
+    }
   }
 
-
   return (
-    // ok
     <section className="mt-10 flex flex-col">
       <h1 className="text-20 font-bold text-white-1">Create Podcast</h1>
 
@@ -87,7 +120,7 @@ const CreatePodcast = () => {
                 <FormItem className="flex flex-col gap-2.5">
                   <FormLabel className="text-16 font-bold text-white-1">Title</FormLabel>
                   <FormControl>
-                    <Input className="input-class focus-visible:ring-offset-orange-1" placeholder="Enter the Title Name" {...field} />
+                    <Input className="input-class focus-visible:ring-offset-orange-1" placeholder="JSM Pro Podcast" {...field} />
                   </FormControl>
                   <FormMessage className="text-white-1" />
                 </FormItem>
@@ -154,7 +187,7 @@ const CreatePodcast = () => {
               />
 
               <div className="mt-10 w-full">
-                <Button type="submit" className="text-16 w-full bg-orange-5 py-4 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-1">
+                <Button type="submit" className="text-16 w-full bg-orange-1 py-4 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-1">
                   {isSubmitting ? (
                     <>
                       Submitting
@@ -164,7 +197,6 @@ const CreatePodcast = () => {
                     'Submit & Publish Podcast'
                   )}
                 </Button>
-
               </div>
           </div>
         </form>

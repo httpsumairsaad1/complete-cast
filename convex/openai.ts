@@ -17,7 +17,7 @@ export const generateAudioAction = action({
       input,
     });
 
-    const buffer = await mp3.arrayBuffer();
+    const buffer = await mp3.arrayBuffer();  
     
     return buffer;
   },

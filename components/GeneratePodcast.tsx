@@ -8,7 +8,7 @@ import { useAction, useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
 import { v4 as uuidv4 } from 'uuid';
 import { useToast } from "@/components/ui/use-toast"
-import { generateUploadUrl } from '@/convex/files'
+
 import { useUploadFiles } from '@xixixao/uploadstuff/react';
 
 const useGeneratePodcast = ({
@@ -112,4 +112,4 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
   )
 }
 
-export default GeneratePodcast 
+export default GeneratePodcast

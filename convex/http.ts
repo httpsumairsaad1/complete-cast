@@ -14,7 +14,7 @@ const handleClerkWebhook = httpAction(async (ctx, request) => {
   if (!event) {
     return new Response("Invalid request", { status: 400 });
   }
-  switch (event.type) {
+  switch (event.type) { 
     case "user.created":
       await ctx.runMutation(internal.users.createUser, {
         clerkId: event.data.id,
