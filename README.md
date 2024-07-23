@@ -3,9 +3,8 @@
 ## Logo
 <img src="https://github.com/httpsumairsaad1/c-cast/assets/121795621/f56857ed-238e-4274-8ec6-14bd30d85e8c" alt="CompleteCastExtra" width="100">
 
-## Date:
-###### Start on 9 June 2024
-###### 10 June 2024, Structure and Left SideBar
-###### 11 June 2024, HomePage 
-###### 12 Break
+## User-Interface
+ <img src="https://github.com/user-attachments/assets/8e8d31fa-52de-4df9-8d03-c790c1054e85" alt="CompleteCastExtra" width="700">
+
+
 
